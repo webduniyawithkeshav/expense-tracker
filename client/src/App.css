@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #6366f1;
+  --success-color: #2ecc71;
+  --danger-color: #ef4444;
+  --border-color: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-color);
+}
+
+h3 {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Balance Card */
+.balance-card h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat.income .value {
+  color: var(--success-color);
+}
+
+.stat.expense .value {
+  color: var(--danger-color);
+}
+
+.stat .label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.stat .value {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Form */
+.form-control {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent-color);
+}
+
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* List */
+.list {
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.list li {
+  background-color: rgba(255, 255, 255, 0.02);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  position: relative;
+  border-left: 4px solid transparent;
+  transition: transform 0.2s;
+}
+
+.list li:hover {
+  transform: translateX(5px);
+}
+
+.list li.plus {
+  border-left-color: var(--success-color);
+}
+
+.list li.minus {
+  border-left-color: var(--danger-color);
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-category {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* AI Insights */
+.ai-card {
+  grid-column: span 1;
+}
+
+.insight-item {
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.insight-item.warning {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+}
+
+.insight-item.success {
+  background-color: rgba(46, 204, 113, 0.1);
+  color: #86efac;
+}
+
+.insight-item.info {
+  background-color: rgba(99, 102, 241, 0.1);
+  color: #a5b4fc;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .balance-card {
+    grid-column: span 1;
+  }
+
+  .chart-card {
+    grid-column: span 2;
+  }
+
+  .form-card {
+    grid-column: span 1;
+  }
+
+  .history-card {
+    grid-column: span 1;
+  }
+
+  .ai-card {
+    grid-column: span 1;
+  }
+}
